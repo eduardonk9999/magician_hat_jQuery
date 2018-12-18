@@ -1,7 +1,14 @@
-// Dica: Quebre em pequenas partes, procure códigos semelhantes e teste.
+$(window).scroll(function(){
+    //Pegar distância entreo o scroll e o topo
+    var windowTop = $(this).scrollTop();
 
-// 1 - Distância entre o scroll e o topo
-// 2 - Ditância entre o elemento e o topo
-// 3 - Verificar essas duas variáveis sempre que o scroll for ativado
-// 4 - Se distância entre o elemento e o topo for maior que do scroll, adicionar classe
-// 5 - A classe deve mostrar e animar o elemento
+    //each pega cada anime da página, para cada um deles, o each vai executar o script
+    $('.anime').each(function(){
+        if (windowTop > $(this).offset().top - 600) { //top - 600 aqui estamos tirando o espaço gigante entre o elemento e o top
+            $(this).addClass('animaInit');
+        } else{
+            $(this).removeClass('animaInit');
+        }
+    });
+
+});
